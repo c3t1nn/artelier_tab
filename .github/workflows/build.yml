@@ -14,24 +14,6 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Build XPI
-
-cat > .github/workflows/build.yml << 'EOL'
-name: Build Firefox Extension
-
-on:
-  push:
-    branches: [ main ]
-  release:
-    types: [published]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Build XPI
       run: |
         mkdir -p web-ext-artifacts
         zip -r web-ext-artifacts/artelier-tab.xpi manifest.json src/*
