@@ -6,73 +6,79 @@
  / ___ \|  _ < | | | |___|  |___| || |___|  _ <  
 /_/   \_\_| \_\|_| |_____|_____|___|_____|_| \_\ 
 ═══════════════════════════════════════════════════
-                                 NEW TAB EXPERIENCE 
+            T A B   E X P E R I E N C E
 ═══════════════════════════════════════════════════
 </pre>
-   
+  <pre style="font-family: monospace; line-height: 1.2;">
+╔══════════════════════════════════════════════════╗
+║             NEW TAB EXPERIENCE v1.0.4            ║
+║                 FIREFOX / 2023-BETA              ║
+╚══════════════════════════════════════════════════╝
+  </pre>
   <pre style="font-family: monospace;">
-╔═══════════════════════╗
-║     WHAT IS THIS?     ║
-╚═══════════════════════╝
+╔════════════════════════════════════════╗
+║             WHAT IS THIS?              ║
+╚════════════════════════════════════════╝
 
    Transform your boring tabs into an
    art gallery featuring masterpieces
    from the Art Institute of Chicago.
    【﻿ａｅｓｔｈｅｔｉｃ】【﻿ｍｉｎｉｍａｌ】
   </pre>
-
   <pre style="font-family: monospace;">
-╔═══════════════════════╗
-║    INSTALLATION       ║
-╚═══════════════════════╝
+╔════════════════════════════════════════╗
+║            INSTALLATION                ║
+╚════════════════════════════════════════╝
 
-   ┌────────────────────────┐
-   │    FIREFOX ADD-ONS     │
-   └────────────────────────┘
-    ▶ Visit Firefox Add-ons
-    ▶ Search "artelier:tab"
-    ▶ Click [Add to Firefox]
-    ▶ Enjoy the art~
+┌────────────────────┐
+│   FIREFOX ADD-ONS  │
+└────────────────────┘
+ ▶ Visit Firefox Add-ons
+ ▶ Search "artelier:tab"
+ ▶ Click [Add to Firefox]
+ ▶ Enjoy the art\~
 
-   ┌────────────────────────┐
-   │    MANUAL INSTALL      │
-   └────────────────────────┘
-    ▶ Get latest .xpi file
-    ▶ Drop into Firefox
-    ▶ Accept permissions
-    ▶ Experience art~
+┌────────────────────┐
+│   MANUAL INSTALL   │
+└────────────────────┘
+ ▶ Get latest .xpi file
+ ▶ Drop into Firefox
+ ▶ Accept permissions
+ ▶ Experience art\~
   </pre>
-
   <pre style="font-family: monospace;">
-╔═══════════════════════╗
-║      FEATURES         ║
-╚═══════════════════════╝
+╔════════════════════════════════════════╗
+║               FEATURES                 ║
+╚════════════════════════════════════════╝
 
-╔══════════════════╗
-║ ARTWORK ENGINE   ║  Random masterpieces
-╚══════════════════╝  High-quality display
-                     Museum collection
+┌──────────────────┐    ┌─────────────────────┐
+│ ARTWORK ENGINE   ├────┤ Random masterpieces │
+└──────────────────┘    │ High-quality display│
+                        │ Museum collection    │
+                        └─────────────────────┘
 
-╔══════════════════╗
-║ THEME SYSTEM     ║  Day/night modes
-╚══════════════════╝  Location-aware
-                     Auto-switching
+┌──────────────────┐    ┌─────────────────────┐
+│ THEME SYSTEM     ├────┤ Day/night modes     │
+└──────────────────┘    │ Location-aware      │
+                        │ Auto-switching       │
+                        └─────────────────────┘
 
-╔══════════════════╗
-║ COLOR MATRIX     ║  Palette extraction
-╚══════════════════╝  Real-time process
-                     Dynamic themes
+┌──────────────────┐    ┌─────────────────────┐
+│ COLOR MATRIX     ├────┤ Palette extraction  │
+└──────────────────┘    │ Real-time process   │
+                        │ Dynamic themes       │
+                        └─────────────────────┘
 
-╔══════════════════╗
-║ INTERFACE        ║  Clean design
-╚══════════════════╝  Material style
-                     Responsive
+┌──────────────────┐    ┌─────────────────────┐
+│ INTERFACE        ├────┤ Clean design        │
+└──────────────────┘    │ Material style      │
+                        │ Responsive           │
+                        └─────────────────────┘
   </pre>
-
   <pre style="font-family: monospace;">
-╔═══════════════════════╗
-║    SYSTEM SPECS       ║
-╚═══════════════════════╝
+╔════════════════════════════════════════╗
+║            SYSTEM SPECS                ║
+╚════════════════════════════════════════╝
 
 ┌─────────────────┐
 │ REQUIREMENTS    │
@@ -82,34 +88,34 @@
 │ ▸ That's all!   │
 └─────────────────┘
   </pre>
-
   <pre style="font-family: monospace;">
-╔═══════════════════════╗
-║    DEVELOPMENT        ║
-╚═══════════════════════╝
+╔════════════════════════════════════════╗
+║             DEVELOPMENT               ║
+╚════════════════════════════════════════╝
 
 ┌──────────┐
-│ STACK    ├───────────────────┐
-└──────────┘                   │
- ► HTML5                       │
- ► CSS3                        │
- ► JavaScript                  │
- └────────────────────────────┘
+│ STACK    ├───────────┐
+└──────────┘           │
+                       ├─────────────┐
+                       │ ► HTML5     │
+                       │ ► CSS3      │
+                       │ ► JavaScript│
+                       └─────────────┘
   </pre>
-
   <pre style="font-family: monospace;">
-╔═══════════════════════╗
-║      SUPPORT          ║
-╚═══════════════════════╝
+╔════════════════════════════════════════╗
+║               SUPPORT                  ║
+╚════════════════════════════════════════╝
 
-Issues → github.com/c3t1nn/artelier_tab
-Help   → Open an issue
-License→ MIT
+┌────────────────────────────────────────┐
+│ Issues → github.com/c3t1nn/artelier_tab│
+│ Help   → Open an issue                 │
+│ License→ MIT                           │
+└────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════
-      Made with ♥ by c3t1nn / 2024
+      Made with ♥ by c3t1nn / 2023
 ═══════════════════════════════════════════════════
-
 [visitors:0000001]
   </pre>
 </div>
