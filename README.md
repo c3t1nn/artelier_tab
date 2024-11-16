@@ -1,106 +1,80 @@
-░█▀▀█ █▀▀█ ▀▀█▀▀ █▀▀ █── ─▀─ █▀▀ █▀▀█ ▄▀▀▄ ▀▀█▀▀ █▀▀█ █▀▀▄
-░█▄▄█ █▄▄▀ ──█── █▀▀ █── ▀█▀ █▀▀ █▄▄▀ █──█ ──█── █▄▄█ █▀▀▄
-░█─── ▀─▀▀ ──▀── ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀─▀▀ ─▀▀─ ──▀── ▀──▀ ▀▀▀─
++--------------------------------+
+|        ARTELIER::TAB           |
+|        v1.0.4-beta            |
++--------------------------------+
 
-██████████████████████████████████████████████████████████████
-█                                                          █
-█  [NEW TAB EXPERIENCE / FIREFOX / v1.0.4-beta / 2023]     █
-█                                                          █
-██████████████████████████████████████████████████████████████
+[WHAT IS THIS?]
+Transform your boring tabs into an
+art gallery featuring masterpieces
+from the Art Institute of Chicago.
+[aesthetic][minimal]
 
-┌─────────────────────────────────────┐
-│ ＷＨＡＴ ＩＳ ＴＨＩＳ？              │
-└─────────────────────────────────────┘
-   Transform your boring tabs into an
-   art gallery featuring masterpieces
-   from the Art Institute of Chicago.
-   【﻿ａｅｓｔｈｅｔｉｃ】【﻿ｍｉｎｉｍａｌ】
++--------------------------------+
+|         INSTALLATION           |
++--------------------------------+
 
+[FIREFOX ADD-ONS]
+> Visit Firefox Add-ons
+> Search "artelier:tab"
+> Click Add to Firefox
+> Enjoy the art~
 
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-     ＩＮＳＴＡＬＬＡＴＩＯＮ
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+[MANUAL INSTALL]
+> Get latest .xpi file
+> Drop into Firefox
+> Accept permissions
+> Experience art~
 
-   ┌────────────────────────┐
-   │    FIREFOX ADD-ONS     │
-   └────────────────────────┘
-    ▶ Visit Firefox Add-ons
-    ▶ Search "artelier:tab"
-    ▶ Click [Add to Firefox]
-    ▶ Enjoy the art~
++--------------------------------+
+|           FEATURES             |
++--------------------------------+
 
-   ┌────────────────────────┐
-   │    MANUAL INSTALL      │
-   └────────────────────────┘
-    ▶ Get latest .xpi file
-    ▶ Drop into Firefox
-    ▶ Accept permissions
-    ▶ Experience art~
+[ARTWORK ENGINE]
+> Random masterpieces
+> High-quality display
+> Museum collection
 
+[THEME SYSTEM]
+> Day/night modes
+> Location-aware
+> Auto-switching
 
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-      ＦＥＡＴＵＲＥＳ
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+[COLOR MATRIX]
+> Palette extraction
+> Real-time process
+> Dynamic themes
 
-╔══════════════════╗
-║ ARTWORK ENGINE   ║  Random masterpieces
-╚══════════════════╝  High-quality display
-                     Museum collection
+[INTERFACE]
+> Clean design
+> Material style
+> Responsive
 
-╔══════════════════╗
-║ THEME SYSTEM     ║  Day/night modes
-╚══════════════════╝  Location-aware
-                     Auto-switching
++--------------------------------+
+|        SYSTEM SPECS            |
++--------------------------------+
 
-╔══════════════════╗
-║ COLOR MATRIX     ║  Palette extraction
-╚══════════════════╝  Real-time process
-                     Dynamic themes
+[REQUIREMENTS]
+> Firefox 57.0+
+> Internet
+> That's all!
 
-╔══════════════════╗
-║ INTERFACE        ║  Clean design
-╚══════════════════╝  Material style
-                     Responsive
++--------------------------------+
+|        DEVELOPMENT             |
++--------------------------------+
 
+[STACK]
+> HTML5
+> CSS3
+> JavaScript
 
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-    ＳＹＳＴＥＭ ＳＰＥＣＳ
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
++--------------------------------+
+|          SUPPORT               |
++--------------------------------+
 
-┌─────────────────┐
-│ REQUIREMENTS    │
-├─────────────────┤
-│ ▸ Firefox 57.0+ │
-│ ▸ Internet      │
-│ ▸ That's all!   │
-└─────────────────┘
+Issues: github.com/c3t1nn/artelier_tab
+Help: Open an issue
+License: MIT
 
-
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-     ＤＥＶＥＬＯＰＭＥＮＴ
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-   ┌──────────┐
-   │ STACK    ├───────────────────┐
-   └──────────┘                   │
-    ► JavaScript                  │
-    ► CSS3                        │
-    ► HTML5                       │
-    └────────────────────────────┘
-
-
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-      ＳＵＰＰＯＲＴ
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-Issues → github.com/c3t1nn/artelier_tab
-Help   → Open an issue
-License→ MIT
-
-██████████████████████████████████████████
-█                                      █
-█  Made with ♥ by c3t1nn / 2023       █
-█                                      █
-██████████████████████████████████████████
-
++--------------------------------+
+Made with <3 by c3t1nn / 2023
 [visitors:0000001]
