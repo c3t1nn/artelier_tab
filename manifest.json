@@ -1,22 +1,20 @@
 {
   "manifest_version": 2,
   "name": "artelier:tab",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Experience masterpieces from world-renowned museums in every new tab",
   "permissions": [
     "https://api.artic.edu/*",
-    "https://www.artic.edu/*",
-    "storage",
-    "tabs"
+    "https://www.artic.edu/*"
   ],
   "chrome_url_overrides": {
     "newtab": "src/html/newtab.html"
   },
-  "content_security_policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; object-src 'self'; img-src 'self' https://www.artic.edu https://api.artic.edu data: blob:; connect-src 'self' https://api.artic.edu https://www.artic.edu; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com",
+  "content_security_policy": "default-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' https://www.artic.edu https://api.artic.edu data: blob:; connect-src 'self' https://api.artic.edu https://www.artic.edu; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'",
   "browser_specific_settings": {
     "gecko": {
       "id": "artelier-tab@arteliertab.com",
-      "strict_min_version": "57.0"
+      "strict_min_version": "58.0"
     }
   }
 }
