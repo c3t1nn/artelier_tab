@@ -1,101 +1,106 @@
-╔══════════════════════════════════════════════════════════════╗
-║                      ARTELIER::TAB                           ║
-║                   VERSION 1.0.4 [BETA]                       ║
-╚══════════════════════════════════════════════════════════════╝
+░█▀▀█ █▀▀█ ▀▀█▀▀ █▀▀ █── ─▀─ █▀▀ █▀▀█ ▄▀▀▄ ▀▀█▀▀ █▀▀█ █▀▀▄
+░█▄▄█ █▄▄▀ ──█── █▀▀ █── ▀█▀ █▀▀ █▄▄▀ █──█ ──█── █▄▄█ █▀▀▄
+░█─── ▀─▀▀ ──▀── ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀─▀▀ ─▀▀─ ──▀── ▀──▀ ▀▀▀─
 
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-                     SYSTEM OVERVIEW                    
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+██████████████████████████████████████████████████████████████
+█                                                          █
+█  [NEW TAB EXPERIENCE / FIREFOX / v1.0.4-beta / 2023]     █
+█                                                          █
+██████████████████████████████████████████████████████████████
 
-     ┌──────────────────────────────────────────────────┐
-     │  A new tab experience featuring masterpieces     │
-     │  from the Art Institute of Chicago's vast        │
-     │  collection. Transform your browsing into art.    │
-     └──────────────────────────────────────────────────┘
+┌─────────────────────────────────────┐
+│ ＷＨＡＴ ＩＳ ＴＨＩＳ？              │
+└─────────────────────────────────────┘
+   Transform your boring tabs into an
+   art gallery featuring masterpieces
+   from the Art Institute of Chicago.
+   【﻿ａｅｓｔｈｅｔｉｃ】【﻿ｍｉｎｉｍａｌ】
 
-╔════════════════════════╗
-║     INSTALLATION      ║
-╚════════════════════════╝
 
- ▼ FIREFOX ADD-ONS
- ┌────────────────────┐
- │ 1. Open Firefox    │
- │ 2. Visit Add-ons   │
- │ 3. Add to Browser  │
- │ 4. Verify Install  │
- └────────────────────┘
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+     ＩＮＳＴＡＬＬＡＴＩＯＮ
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
- ▼ MANUAL INSTALL
- ┌────────────────────┐
- │ 1. Download XPI    │
- │ 2. Load in Firefox │
- │ 3. Accept Prompt   │
- │ 4. Ready to Use    │
- └────────────────────┘
+   ┌────────────────────────┐
+   │    FIREFOX ADD-ONS     │
+   └────────────────────────┘
+    ▶ Visit Firefox Add-ons
+    ▶ Search "artelier:tab"
+    ▶ Click [Add to Firefox]
+    ▶ Enjoy the art~
 
-╔════════════════════════╗
-║    CORE FEATURES      ║
-╚════════════════════════╝
+   ┌────────────────────────┐
+   │    MANUAL INSTALL      │
+   └────────────────────────┘
+    ▶ Get latest .xpi file
+    ▶ Drop into Firefox
+    ▶ Accept permissions
+    ▶ Experience art~
 
- ┌─ ARTWORK ENGINE ─────┐
- │ » Random Selection   │
- │ » Museum Quality     │
- │ » Auto Rotation     │
- └────────────────────┘
 
- ┌─ THEME SYSTEM ──────┐
- │ » Day/Night Modes   │
- │ » Location Aware    │
- │ » Auto Switching    │
- └────────────────────┘
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+      ＦＥＡＴＵＲＥＳ
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
- ┌─ COLOR MATRIX ──────┐
- │ » Palette Extract   │
- │ » Real-time Proc.   │
- │ » Dynamic Themes    │
- └────────────────────┘
+╔══════════════════╗
+║ ARTWORK ENGINE   ║  Random masterpieces
+╚══════════════════╝  High-quality display
+                     Museum collection
 
- ┌─ INTERFACE ─────────┐
- │ » Clean Design      │
- │ » Material UI       │
- │ » Responsive        │
- └────────────────────┘
+╔══════════════════╗
+║ THEME SYSTEM     ║  Day/night modes
+╚══════════════════╝  Location-aware
+                     Auto-switching
 
-╔════════════════════════╗
-║   SPECIFICATIONS      ║
-╚════════════════════════╝
+╔══════════════════╗
+║ COLOR MATRIX     ║  Palette extraction
+╚══════════════════╝  Real-time process
+                     Dynamic themes
 
- SYSTEM REQUIREMENTS
- ══════════════════
- ► Browser: Firefox 57.0+
- ► Network: Required
- ► Display: Any Resolution
- ► Memory: Minimal Usage
+╔══════════════════╗
+║ INTERFACE        ║  Clean design
+╚══════════════════╝  Material style
+                     Responsive
 
-╔════════════════════════╗
-║     DEVELOPMENT       ║
-╚════════════════════════╝
 
- TECHNICAL SPECS
- ══════════════
- ┌────────────────────┐
- │ SOURCE » Open      │
- │ LANG   » JS        │
- │ STYLE  » CSS3      │
- │ MARKUP » HTML5     │
- └────────────────────┘
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+    ＳＹＳＴＥＭ ＳＰＥＣＳ
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-╔════════════════════════╗
-║      SUPPORT          ║
-╚════════════════════════╝
+┌─────────────────┐
+│ REQUIREMENTS    │
+├─────────────────┤
+│ ▸ Firefox 57.0+ │
+│ ▸ Internet      │
+│ ▸ That's all!   │
+└─────────────────┘
 
- ┌────────────────────┐
- │ BUGS  » Github     │
- │ HELP  » Issues     │
- │ LICENSE » MIT      │
- └────────────────────┘
 
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-     REPOSITORY: github.com/c3t1nn/artelier_tab
-     STATUS: BETA | BUILD: 1.0.4.111723
-■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+     ＤＥＶＥＬＯＰＭＥＮＴ
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+   ┌──────────┐
+   │ STACK    ├───────────────────┐
+   └──────────┘                   │
+    ► JavaScript                  │
+    ► CSS3                        │
+    ► HTML5                       │
+    └────────────────────────────┘
+
+
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+      ＳＵＰＰＯＲＴ
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+Issues → github.com/c3t1nn/artelier_tab
+Help   → Open an issue
+License→ MIT
+
+██████████████████████████████████████████
+█                                      █
+█  Made with ♥ by c3t1nn / 2023       █
+█                                      █
+██████████████████████████████████████████
+
+[visitors:0000001]
