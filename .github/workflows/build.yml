@@ -1,30 +1,49 @@
 name: Build Firefox Extension
-
 on:
   push:
     branches: [ main ]
   release:
     types: [published]
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - uses: actions/checkout@v4
     
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Install web-ext
+      run: npm install --global web-ext
+    
     - name: Build XPI
       run: |
         mkdir -p web-ext-artifacts
-        zip -r web-ext-artifacts/artelier-tab.xpi manifest.json src/*
+        cd $(pwd)
+        zip -r web-ext-artifacts/artelier-tab.xpi \
+          manifest.json \
+          src/html/* \
+          src/css/* \
+          src/js/* \
+          --exclude "*.git*" \
+          --exclude "*.DS_Store"
+    
+    - name: Validate XPI
+      run: |
+        web-ext lint
     
     - name: Upload Extension
       if: github.event_name == 'release'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh release upload ${{ github.event.release.tag_name }} web-ext-artifacts/artelier-tab.xpi
-
+        gh release upload ${{ github.event.release.tag_name }} web-ext-artifacts/artelier-tab.xpi --clobber
+    
     - name: Store Extension
       uses: actions/upload-artifact@v4
       with:
