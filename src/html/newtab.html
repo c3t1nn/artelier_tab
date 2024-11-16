@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artelier:tab</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="info-panel">
+            <div class="artwork-info">
+                <div class="artwork-title">
+                    <h1 id="artworkTitle"></h1>
+                </div>
+                <div class="artwork-details">
+                    <p id="artist"></p>
+                    <p id="date"></p>
+                </div>
+            </div>
+            <div class="color-palette-container">
+                <div class="color-palette" id="colorPalette"></div>
+                <div class="nav-pill">
+                    <div class="pill-content">
+                        <div class="tags" id="tags"></div>
+                        <div class="main-controls">
+                            <button id="themeToggle" class="pill-button" data-label="Theme">
+                                <span class="material-symbols-rounded theme-icon">light_mode</span>
+                            </button>
+                            <button id="locationToggle" class="pill-button" data-label="Location">
+                                <span class="material-symbols-rounded">location_on</span>
+                            </button>
+                            <button id="museumToggle" class="pill-button" data-label="Museum Info">
+                                <span class="material-symbols-rounded">museum</span>
+                            </button>
+                            <button id="downloadBtn" class="pill-button" data-label="Download">
+                                <span class="material-symbols-rounded">download</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Panels -->
+                    <div class="location-panel">
+                        <p class="location-info">Optional: Enter your coordinates for automatic day/night theme switching based on your local sunrise and sunset times.</p>
+                        <div class="input-group">
+                            <div class="input-field">
+                                <label for="latitude">Latitude</label>
+                                <input type="number" id="latitude" step="0.000001" placeholder="e.g., 41.8781">
+                            </div>
+                            <div class="input-field">
+                                <label for="longitude">Longitude</label>
+                                <input type="number" id="longitude" step="0.000001" placeholder="e.g., -87.6298">
+                            </div>
+                        </div>
+                        <button id="saveLocation" class="pill-action-button">Save</button>
+                    </div>
+                    <div class="museum-panel">
+                        <div class="museum-info-card">
+                            <div class="museum-header">
+                                <h3>Art Institute Chicago</h3>
+                            </div>
+                            <div class="museum-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Collection</span>
+                                    <span class="stat-value">300,000+ Works</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Founded</span>
+                                    <span class="stat-value">1879</span>
+                                </div>
+                            </div>
+                            <a href="https://www.artic.edu" target="_blank" class="museum-link">
+                                Visit Website
+                                <span class="material-symbols-rounded">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="image-panel">
+            <img id="artworkImage" crossorigin="anonymous" src="" alt="Artwork">
+        </div>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

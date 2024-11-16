@@ -1,0 +1,51 @@
+name: Build Firefox Extension
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Build XPI
+
+cat > .github/workflows/build.yml << 'EOL'
+name: Build Firefox Extension
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Build XPI
+      run: |
+        mkdir -p web-ext-artifacts
+        zip -r web-ext-artifacts/artelier-tab.xpi manifest.json src/*
+    
+    - name: Upload Extension
+      if: github.event_name == 'release'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh release upload ${{ github.event.release.tag_name }} web-ext-artifacts/artelier-tab.xpi
+
+    - name: Store Extension
+      uses: actions/upload-artifact@v4
+      with:
+        name: extension
+        path: web-ext-artifacts/artelier-tab.xpi
+        if-no-files-found: error
