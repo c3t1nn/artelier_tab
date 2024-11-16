@@ -6,116 +6,60 @@
  / ___ \|  _ < | | | |___|  |___| || |___|  _ <  
 /_/   \_\_| \_\|_| |_____|_____|___|_____|_| \_\ 
 ═══════════════════════════════════════════════════
-            T A B   E X P E R I E N C E
+                   NEW T A B   E X P E R I E N C E
 ═══════════════════════════════════════════════════
 </pre>
-  <pre style="font-family: monospace; line-height: 1.2;">
-╔══════════════════════════════════════════════════╗
-║             NEW TAB EXPERIENCE v1.0.4            ║
-║                 FIREFOX / 2023-BETA              ║
-╚══════════════════════════════════════════════════╝
-  </pre>
-  <pre style="font-family: monospace;">
-╔════════════════════════════════════════╗
-║             WHAT IS THIS?              ║
-╚════════════════════════════════════════╝
+</div>
 
-   Transform your boring tabs into an
-   art gallery featuring masterpieces
-   from the Art Institute of Chicago.
-   【﻿ａｅｓｔｈｅｔｉｃ】【﻿ｍｉｎｉｍａｌ】
-  </pre>
-  <pre style="font-family: monospace;">
-╔════════════════════════════════════════╗
-║            INSTALLATION                ║
-╚════════════════════════════════════════╝
+## Overview
+Transform your new tab into an art gallery, featuring masterpieces from the Art Institute of Chicago.
 
-┌────────────────────┐
-│   FIREFOX ADD-ONS  │
-└────────────────────┘
- ▶ Visit Firefox Add-ons
- ▶ Search "artelier:tab"
- ▶ Click [Add to Firefox]
- ▶ Enjoy the art\~
+## Installation
+**Firefox Add-ons**
+- Visit Firefox Add-ons
+- Search "artelier:tab"
+- Add to Firefox
 
-┌────────────────────┐
-│   MANUAL INSTALL   │
-└────────────────────┘
- ▶ Get latest .xpi file
- ▶ Drop into Firefox
- ▶ Accept permissions
- ▶ Experience art\~
-  </pre>
-  <pre style="font-family: monospace;">
-╔════════════════════════════════════════╗
-║               FEATURES                 ║
-╚════════════════════════════════════════╝
+**Manual Install**
+- Download latest .xpi
+- Drop into Firefox
+- Accept permissions
 
-┌──────────────────┐    ┌─────────────────────┐
-│ ARTWORK ENGINE   ├────┤ Random masterpieces │
-└──────────────────┘    │ High-quality display│
-                        │ Museum collection    │
-                        └─────────────────────┘
+## Features
+**Artwork Engine**
+- Random masterpieces
+- High-quality display
+- Museum collection
 
-┌──────────────────┐    ┌─────────────────────┐
-│ THEME SYSTEM     ├────┤ Day/night modes     │
-└──────────────────┘    │ Location-aware      │
-                        │ Auto-switching       │
-                        └─────────────────────┘
+**Theme System**
+- Day/night modes
+- Location-aware
+- Auto-switching
 
-┌──────────────────┐    ┌─────────────────────┐
-│ COLOR MATRIX     ├────┤ Palette extraction  │
-└──────────────────┘    │ Real-time process   │
-                        │ Dynamic themes       │
-                        └─────────────────────┘
+**Color Matrix**
+- Palette extraction
+- Real-time process
+- Dynamic themes
 
-┌──────────────────┐    ┌─────────────────────┐
-│ INTERFACE        ├────┤ Clean design        │
-└──────────────────┘    │ Material style      │
-                        │ Responsive           │
-                        └─────────────────────┘
-  </pre>
-  <pre style="font-family: monospace;">
-╔════════════════════════════════════════╗
-║            SYSTEM SPECS                ║
-╚════════════════════════════════════════╝
+**Interface**
+- Clean design
+- Material style
+- Responsive
 
-┌─────────────────┐
-│ REQUIREMENTS    │
-├─────────────────┤
-│ ▸ Firefox 57.0+ │
-│ ▸ Internet      │
-│ ▸ That's all!   │
-└─────────────────┘
-  </pre>
-  <pre style="font-family: monospace;">
-╔════════════════════════════════════════╗
-║             DEVELOPMENT               ║
-╚════════════════════════════════════════╝
+## System Requirements
+- Firefox 57.0+
+- Internet connection
 
-┌──────────┐
-│ STACK    ├───────────┐
-└──────────┘           │
-                       ├─────────────┐
-                       │ ► HTML5     │
-                       │ ► CSS3      │
-                       │ ► JavaScript│
-                       └─────────────┘
-  </pre>
-  <pre style="font-family: monospace;">
-╔════════════════════════════════════════╗
-║               SUPPORT                  ║
-╚════════════════════════════════════════╝
+## Development
+**Stack**
+- HTML5
+- CSS3
+- JavaScript
 
-┌────────────────────────────────────────┐
-│ Issues → github.com/c3t1nn/artelier_tab│
-│ Help   → Open an issue                 │
-│ License→ MIT                           │
-└────────────────────────────────────────┘
+## Support
+Issues and feature requests: [GitHub Issues](https://github.com/c3t1nn/artelier_tab/issues)
 
-═══════════════════════════════════════════════════
-      Made with ♥ by c3t1nn / 2023
-═══════════════════════════════════════════════════
-[visitors:0000001]
-  </pre>
+---
+<div align="center">
+  <code>artelier:tab | 2023</code>
 </div>
