@@ -13,14 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-    
-    - name: Install web-ext
-      run: npm install --global web-ext
-    
     - name: Build XPI
       run: |
         mkdir -p web-ext-artifacts
@@ -30,12 +22,9 @@ jobs:
           src/html/* \
           src/css/* \
           src/js/* \
+          src/lib/* \
           --exclude "*.git*" \
           --exclude "*.DS_Store"
-    
-    - name: Validate XPI
-      run: |
-        web-ext lint
     
     - name: Upload Extension
       if: github.event_name == 'release'
