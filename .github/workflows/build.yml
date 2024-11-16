@@ -3,7 +3,8 @@ on:
   push:
     branches: [ main ]
   release:
-    types: [published]
+    types: [created, published]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,14 +27,15 @@ jobs:
           --exclude "*.git*" \
           --exclude "*.DS_Store"
     
-    - name: Upload Extension
+    - name: Upload to Release
       if: github.event_name == 'release'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gh release upload ${{ github.event.release.tag_name }} web-ext-artifacts/artelier-tab.xpi --clobber
     
-    - name: Store Extension
+    - name: Upload as Artifact
+      if: github.event_name == 'push'
       uses: actions/upload-artifact@v4
       with:
         name: extension
