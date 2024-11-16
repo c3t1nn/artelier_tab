@@ -61,5 +61,5 @@ Issues and feature requests: [GitHub Issues](https://github.com/c3t1nn/artelier_
 
 ---
 <div align="center">
-  <code>artelier:tab | 2023</code>
+  <code>artelier:tab | 2024</code>
 </div>
