@@ -1,88 +1,101 @@
-//////////////////////////////////
-     ARTELIER::TAB README
-     VERSION 1.0.4 [BETA]
-//////////////////////////////////
+╔══════════════════════════════════════════════════════════════╗
+║                      ARTELIER::TAB                           ║
+║                   VERSION 1.0.4 [BETA]                       ║
+╚══════════════════════════════════════════════════════════════╝
 
-<< SYSTEM OVERVIEW >>
-------------------------
-ARTELIER::TAB transforms your 
-browser's new tab into a curated 
-art experience, delivering 
-masterpieces from the Art 
-Institute of Chicago directly 
-to your screen.
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+                     SYSTEM OVERVIEW                    
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
-<< INSTALLATION >>
-------------------------
-METHOD A: FIREFOX ADD-ONS
-1. Navigate to Firefox Add-ons
-2. Search "artelier:tab"
-3. Click "Add to Firefox"
-4. Confirm permissions
+     ┌──────────────────────────────────────────────────┐
+     │  A new tab experience featuring masterpieces     │
+     │  from the Art Institute of Chicago's vast        │
+     │  collection. Transform your browsing into art.    │
+     └──────────────────────────────────────────────────┘
 
-METHOD B: MANUAL INSTALL
-1. Download latest XPI
-2. Open Firefox
-3. Load extension
-4. Verify installation
+╔════════════════════════╗
+║     INSTALLATION      ║
+╚════════════════════════╝
 
-<< CORE FEATURES >>
-------------------------
-ARTWORK.DLL
-- Curated art selection
-- Museum-grade quality
-- Automatic rotation
+ ▼ FIREFOX ADD-ONS
+ ┌────────────────────┐
+ │ 1. Open Firefox    │
+ │ 2. Visit Add-ons   │
+ │ 3. Add to Browser  │
+ │ 4. Verify Install  │
+ └────────────────────┘
 
-THEME.SYS
-- Dynamic day/night modes
-- Location awareness
-- Automatic switching
+ ▼ MANUAL INSTALL
+ ┌────────────────────┐
+ │ 1. Download XPI    │
+ │ 2. Load in Firefox │
+ │ 3. Accept Prompt   │
+ │ 4. Ready to Use    │
+ └────────────────────┘
 
-PALETTE.BIN
-- Color extraction
-- Real-time analysis
-- Dynamic theming
+╔════════════════════════╗
+║    CORE FEATURES      ║
+╚════════════════════════╝
 
-INTERFACE.LIB
-- Clean typography
-- Material design
-- Responsive layout
+ ┌─ ARTWORK ENGINE ─────┐
+ │ » Random Selection   │
+ │ » Museum Quality     │
+ │ » Auto Rotation     │
+ └────────────────────┘
 
-<< SPECIFICATIONS >>
-------------------------
-COMPATIBILITY: Firefox 57.0+
-API: Art Institute Chicago
-NETWORK: Required
-PERMISSIONS: Minimal
-UPDATES: Automatic
+ ┌─ THEME SYSTEM ──────┐
+ │ » Day/Night Modes   │
+ │ » Location Aware    │
+ │ » Auto Switching    │
+ └────────────────────┘
 
-<< DEVELOPMENT >>
-------------------------
-SOURCE: Open source
-LANG: JavaScript
-STYLE: CSS3
-MARKUP: HTML5
-BUILD: Node.js
+ ┌─ COLOR MATRIX ──────┐
+ │ » Palette Extract   │
+ │ » Real-time Proc.   │
+ │ » Dynamic Themes    │
+ └────────────────────┘
 
-<< CONTRIBUTION >>
-------------------------
-1. Fork repository
-2. Create feature branch
-3. Commit changes
-4. Push to branch
-5. Create pull request
+ ┌─ INTERFACE ─────────┐
+ │ » Clean Design      │
+ │ » Material UI       │
+ │ » Responsive        │
+ └────────────────────┘
 
-<< SUPPORT >>
-------------------------
-ISSUES: Github tracker
-CONTACT: Repository
-LICENSE: MIT
+╔════════════════════════╗
+║   SPECIFICATIONS      ║
+╚════════════════════════╝
 
-------------------------
-STATUS: MAINTAINED
-UPDATES: REGULAR
-STABILITY: BETA
-------------------------
+ SYSTEM REQUIREMENTS
+ ══════════════════
+ ► Browser: Firefox 57.0+
+ ► Network: Required
+ ► Display: Any Resolution
+ ► Memory: Minimal Usage
 
-[REPOSITORY: github.com/c3t1nn/artelier_tab]
-//////////////////////////////////
+╔════════════════════════╗
+║     DEVELOPMENT       ║
+╚════════════════════════╝
+
+ TECHNICAL SPECS
+ ══════════════
+ ┌────────────────────┐
+ │ SOURCE » Open      │
+ │ LANG   » JS        │
+ │ STYLE  » CSS3      │
+ │ MARKUP » HTML5     │
+ └────────────────────┘
+
+╔════════════════════════╗
+║      SUPPORT          ║
+╚════════════════════════╝
+
+ ┌────────────────────┐
+ │ BUGS  » Github     │
+ │ HELP  » Issues     │
+ │ LICENSE » MIT      │
+ └────────────────────┘
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+     REPOSITORY: github.com/c3t1nn/artelier_tab
+     STATUS: BETA | BUILD: 1.0.4.111723
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
