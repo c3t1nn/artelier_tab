@@ -12,7 +12,7 @@
   "chrome_url_overrides": {
     "newtab": "src/html/newtab.html"
   },
-  "content_security_policy": "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; object-src 'self'; img-src 'self' https://www.artic.edu https://api.artic.edu data: blob:; connect-src 'self' https://api.artic.edu https://www.artic.edu; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;",
+  "content_security_policy": "script-src 'self' 'unsafe-inline'; object-src 'self'; img-src 'self' https://www.artic.edu https://api.artic.edu data: blob:; connect-src 'self' https://api.artic.edu https://www.artic.edu; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;",
   "browser_specific_settings": {
     "gecko": {
       "id": "artelier-tab@arteliertab.com",
