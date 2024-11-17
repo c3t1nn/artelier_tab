@@ -1,37 +1,30 @@
-// Constants
-const API_URL = 'https://api.artic.edu/api/v1/artworks/search';
-const API_PARAMS = '?q=&fields=id,title,artist_display,date_display,style_titles,classification_titles,material_titles,image_id&limit=100';
-
-const THEMES = {
-    LIGHT: {
-        name: 'light',
-        icon: 'light_mode',
-        label: 'Light Theme'
-    },
-    DARK: {
-        name: 'dark',
-        icon: 'dark_mode',
-        label: 'Dark Theme'
-    },
-    AUTO: {
-        name: 'auto',
-        icon: 'brightness_auto',
-        label: 'Auto Theme'
-    }
-};
-
-// DOM Elements
-let elements;
-
 document.addEventListener('DOMContentLoaded', () => {
-    initializeElements();
-    initializeEventListeners();
-    initializeTheme();
-    fetchArtwork();
-});
+    // Sabitler
+    const CONFIG = {
+        API_URL: 'https://api.artic.edu/api/v1/artworks/search',
+        CACHE_KEY: 'artelier_artwork_cache',
+        CACHE_DURATION: 24 * 60 * 60 * 1000, // 24 saat
+        THEME_STATES: {
+            LIGHT: {
+                name: 'light',
+                icon: 'light_mode',
+                label: 'Light Theme'
+            },
+            DARK: {
+                name: 'dark',
+                icon: 'dark_mode',
+                label: 'Dark Theme'
+            },
+            AUTO: {
+                name: 'auto',
+                icon: 'brightness_auto',
+                label: 'Auto Theme'
+            }
+        }
+    };
 
-function initializeElements() {
-    elements = {
+    // DOM Elementleri
+    const DOM = {
         artworkImage: document.getElementById('artworkImage'),
         artworkTitle: document.getElementById('artworkTitle'),
         artist: document.getElementById('artist'),
@@ -49,222 +42,275 @@ function initializeElements() {
         longitudeInput: document.getElementById('longitude'),
         themeIcon: document.querySelector('.theme-icon')
     };
-}
 
-function initializeEventListeners() {
-    elements.themeToggle.addEventListener('click', toggleTheme);
-    elements.locationToggle.addEventListener('click', () => togglePanel(elements.locationPanel, elements.locationToggle));
-    elements.museumToggle.addEventListener('click', () => togglePanel(elements.museumPanel, elements.museumToggle));
-    elements.downloadBtn.addEventListener('click', downloadArtwork);
-    elements.saveLocationBtn.addEventListener('click', saveLocation);
-}
+    // State Management
+    let currentThemeState = localStorage.getItem('themeState') || 'light';
+    let currentTheme = localStorage.getItem('theme') || 'light';
+    let themeTimeout = null;
+    let currentArtwork = null;
 
-function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme') || THEMES.LIGHT.name;
-    const savedThemeState = localStorage.getItem('themeState') || THEMES.LIGHT.name;
-    
-    setTheme(savedTheme);
-    updateThemeIcon(savedThemeState);
-    
-    if (savedThemeState === THEMES.AUTO.name) {
-        checkLocationBasedTheme();
+    // Color Thief instance
+    const colorThief = new ColorThief();
+
+    // API İşlemleri
+    async function fetchArtwork() {
+        try {
+            const params = new URLSearchParams({
+                fields: 'id,title,artist_display,date_display,image_id,style_titles,classification_titles,material_titles',
+                limit: '100'
+            });
+
+            const response = await fetch(`${CONFIG.API_URL}?${params}`);
+            if (!response.ok) throw new Error('API request failed');
+
+            const data = await response.json();
+            const artworksWithImages = data.data.filter(artwork => artwork.image_id);
+            
+            if (artworksWithImages.length === 0) {
+                throw new Error('No artwork found');
+            }
+
+            currentArtwork = artworksWithImages[Math.floor(Math.random() * artworksWithImages.length)];
+            
+            updateArtworkDisplay();
+            
+        } catch (error) {
+            console.error('Error fetching artwork:', error);
+            showToast('Error loading artwork');
+        }
     }
-}
 
-async function fetchArtwork() {
-    try {
-        const response = await fetch(`${API_URL}${API_PARAMS}`);
-        if (!response.ok) throw new Error('Network response was not ok');
+    // Artwork Display
+    function updateArtworkDisplay() {
+        if (!currentArtwork) return;
 
-        const data = await response.json();
-        const artworksWithImages = data.data.filter(artwork => artwork.image_id);
+        DOM.artworkTitle.textContent = currentArtwork.title;
+        DOM.artist.textContent = currentArtwork.artist_display;
+        DOM.date.textContent = currentArtwork.date_display;
+
+        const allTags = [
+            ...(currentArtwork.style_titles || []),
+            ...(currentArtwork.classification_titles || []),
+            ...(currentArtwork.material_titles || [])
+        ];
         
-        if (!artworksWithImages.length) {
-            throw new Error('No artwork found');
+        DOM.tags.innerHTML = allTags
+            .slice(0, 5)
+            .map(tag => `<span class="tag">${tag}</span>`)
+            .join('');
+
+        const imageUrl = `https://www.artic.edu/iiif/2/${currentArtwork.image_id}/full/843,/0/default.jpg`;
+        DOM.artworkImage.src = imageUrl;
+        DOM.artworkImage.onload = function() {
+            updateColorPalette(this);
+        };
+    }
+
+    // Color Palette Management
+    function updateColorPalette(image) {
+        try {
+            const colors = colorThief.getPalette(image, 5);
+            DOM.colorPalette.innerHTML = colors
+                .map(color => {
+                    const [r, g, b] = color;
+                    return `
+                        <div class="color-wrapper">
+                            <div class="color" 
+                                 style="background-color: rgb(${r}, ${g}, ${b})"
+                                 data-color="rgb(${r}, ${g}, ${b})">
+                            </div>
+                        </div>`;
+                })
+                .join('');
+
+            setupColorCopyEvents();
+        } catch (error) {
+            console.error('Error generating color palette:', error);
+        }
+    }
+
+    // Theme Management
+    function updateThemeIcon() {
+        const currentState = CONFIG.THEME_STATES[currentThemeState.toUpperCase()];
+        DOM.themeIcon.textContent = currentState.icon;
+        DOM.themeToggle.setAttribute('data-label', currentState.label);
+    }
+
+    function toggleTheme() {
+        switch(currentThemeState) {
+            case 'light':
+                currentThemeState = 'dark';
+                currentTheme = 'dark';
+                break;
+            case 'dark':
+                currentThemeState = 'auto';
+                checkLocationBasedTheme();
+                break;
+            default:
+                currentThemeState = 'light';
+                currentTheme = 'light';
         }
 
-        displayRandomArtwork(artworksWithImages);
-    } catch (error) {
-        console.error('Error:', error);
-        showToast('Failed to load artwork. Please try again.');
+        localStorage.setItem('themeState', currentThemeState);
+        localStorage.setItem('theme', currentTheme);
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon();
     }
-}
 
-function displayRandomArtwork(artworks) {
-    const artwork = artworks[Math.floor(Math.random() * artworks.length)];
-    
-    elements.artworkTitle.textContent = artwork.title;
-    elements.artist.textContent = artwork.artist_display;
-    elements.date.textContent = artwork.date_display;
-    
-    displayTags(artwork);
-    loadArtworkImage(artwork.image_id);
-}
+    // Location Based Theme
+    function checkLocationBasedTheme() {
+        if (themeTimeout) {
+            clearTimeout(themeTimeout);
+        }
 
-function displayTags(artwork) {
-    const allTags = [
-        ...(artwork.style_titles || []),
-        ...(artwork.classification_titles || []),
-        ...(artwork.material_titles || [])
-    ];
-    
-    const limitedTags = allTags.slice(0, 5);
-    elements.tags.innerHTML = limitedTags.map(tag => 
-        `<span class="tag">${tag}</span>`
-    ).join('');
-}
+        const latitude = parseFloat(localStorage.getItem('latitude'));
+        const longitude = parseFloat(localStorage.getItem('longitude'));
 
-function loadArtworkImage(imageId) {
-    const imageUrl = `https://www.artic.edu/iiif/2/${imageId}/full/843,/0/default.jpg`;
-    elements.artworkImage.src = imageUrl;
-    elements.artworkImage.onload = () => updateColorPalette(elements.artworkImage);
-}
+        if (!isNaN(latitude) && !isNaN(longitude) && currentThemeState === 'auto') {
+            const now = new Date();
+            const times = SunCalc.getTimes(now, latitude, longitude);
+            const utcOffset = Math.round(longitude * 4);
+            const localSunrise = new Date(times.sunrise.getTime() + (utcOffset * 60000));
+            const localSunset = new Date(times.sunset.getTime() + (utcOffset * 60000));
+            const localTime = new Date(now.getTime() + (utcOffset * 60000));
 
-function updateColorPalette(image) {
-    try {
-        const colorThief = new ColorThief();
-        const colors = colorThief.getPalette(image, 5);
-        
-        elements.colorPalette.innerHTML = colors.map(color => {
-            const [r, g, b] = color;
-            return `
-                <div class="color-wrapper">
-                    <div class="color" 
-                         style="background-color: rgb(${r}, ${g}, ${b})"
-                         data-color="rgb(${r}, ${g}, ${b})">
-                    </div>
-                </div>`;
-        }).join('');
+            const isDark = localTime < localSunrise || localTime > localSunset;
+            currentTheme = isDark ? 'dark' : 'light';
 
-        addColorClickListeners();
-    } catch (error) {
-        console.error('Error generating color palette:', error);
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+
+            const nextCheck = localTime < localSunrise ? localSunrise : localSunset;
+            const timeUntilNextCheck = nextCheck - localTime;
+            const maxWait = 60 * 60 * 1000; // 1 saat
+            const waitTime = Math.min(timeUntilNextCheck, maxWait);
+
+            themeTimeout = setTimeout(checkLocationBasedTheme, waitTime);
+        }
     }
-}
 
-function addColorClickListeners() {
-    document.querySelectorAll('.color').forEach(color => {
-        color.addEventListener('click', () => {
-            const colorValue = color.getAttribute('data-color');
-            navigator.clipboard.writeText(colorValue);
-            showToast('Color copied to clipboard!');
+    // UI Helpers
+    function togglePanel(panel, button) {
+        const isActive = panel.classList.contains('active');
+
+        DOM.locationPanel.classList.remove('active');
+        DOM.museumPanel.classList.remove('active');
+
+        if (!isActive) {
+            panel.classList.add('active');
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    }
+
+    function showToast(message) {
+        const existingToast = document.querySelector('.toast');
+        if (existingToast) {
+            existingToast.remove();
+        }
+
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
+    }
+
+    // Location Management
+    function saveLocation() {
+        const latitude = DOM.latitudeInput.value;
+        const longitude = DOM.longitudeInput.value;
+
+        if (latitude && longitude) {
+            localStorage.setItem('latitude', latitude);
+            localStorage.setItem('longitude', longitude);
+            showToast('Location saved successfully!');
+            DOM.locationPanel.classList.remove('active');
+
+            if (currentThemeState === 'auto') {
+                checkLocationBasedTheme();
+            }
+        }
+    }
+
+    // Download Management
+    async function downloadArtwork() {
+        try {
+            if (!currentArtwork || !currentArtwork.image_id) {
+                showToast('No artwork available to download');
+                return;
+            }
+
+            const highResUrl = `https://www.artic.edu/iiif/2/${currentArtwork.image_id}/full/1686,/0/default.jpg`;
+            const response = await fetch(highResUrl);
+            const blob = await response.blob();
+
+            const fileName = `${currentArtwork.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.jpg`;
+
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = fileName;
+
+            document.body.appendChild(a);
+            a.click();
+
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+
+            showToast('Download started');
+        } catch (error) {
+            console.error('Error downloading artwork:', error);
+            showToast('Error downloading artwork');
+        }
+    }
+
+    // Event Listeners
+    function setupColorCopyEvents() {
+        document.querySelectorAll('.color').forEach(color => {
+            color.addEventListener('click', () => {
+                const colorValue = color.getAttribute('data-color');
+                navigator.clipboard.writeText(colorValue);
+                showToast('Color copied to clipboard!');
+            });
         });
-    });
-}
-
-function toggleTheme() {
-    const currentState = localStorage.getItem('themeState') || THEMES.LIGHT.name;
-    let newState;
-    
-    switch(currentState) {
-        case THEMES.LIGHT.name:
-            newState = THEMES.DARK.name;
-            break;
-        case THEMES.DARK.name:
-            newState = THEMES.AUTO.name;
-            break;
-        default:
-            newState = THEMES.LIGHT.name;
     }
-    
-    localStorage.setItem('themeState', newState);
-    updateThemeIcon(newState);
-    
-    if (newState === THEMES.AUTO.name) {
-        checkLocationBasedTheme();
-    } else {
-        setTheme(newState);
-    }
-}
 
-function updateThemeIcon(themeState) {
-    const theme = THEMES[themeState.toUpperCase()];
-    elements.themeIcon.textContent = theme.icon;
-    elements.themeToggle.setAttribute('data-label', theme.label);
-}
-
-function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-}
-
-function checkLocationBasedTheme() {
-    const latitude = parseFloat(localStorage.getItem('latitude'));
-    const longitude = parseFloat(localStorage.getItem('longitude'));
-    
-    if (isNaN(latitude) || isNaN(longitude)) {
-        showToast('Please set your location for automatic theme switching');
-        return;
-    }
-    
-    const times = SunCalc.getTimes(new Date(), latitude, longitude);
-    const isDark = new Date() < times.sunrise || new Date() > times.sunset;
-    setTheme(isDark ? THEMES.DARK.name : THEMES.LIGHT.name);
-}
-
-function togglePanel(panel, button) {
-    const isActive = panel.classList.contains('active');
-    
-    elements.locationPanel.classList.remove('active');
-    elements.museumPanel.classList.remove('active');
-    
-    if (!isActive) {
-        panel.classList.add('active');
-        button.classList.add('active');
-    } else {
-        button.classList.remove('active');
-    }
-}
-
-function saveLocation() {
-    const latitude = elements.latitudeInput.value;
-    const longitude = elements.longitudeInput.value;
-    
-    if (!latitude || !longitude) {
-        showToast('Please enter both latitude and longitude');
-        return;
-    }
-    
-    localStorage.setItem('latitude', latitude);
-    localStorage.setItem('longitude', longitude);
-    showToast('Location saved successfully!');
-    elements.locationPanel.classList.remove('active');
-    
-    if (localStorage.getItem('themeState') === THEMES.AUTO.name) {
-        checkLocationBasedTheme();
-    }
-}
-
-async function downloadArtwork() {
-    try {
-        const imageUrl = elements.artworkImage.src;
-        const response = await fetch(imageUrl);
-        const blob = await response.blob();
+    // Initialize
+    function initialize() {
+        // Load saved location
+        const savedLatitude = localStorage.getItem('latitude');
+        const savedLongitude = localStorage.getItem('longitude');
         
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = `artwork-${Date.now()}.jpg`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        
-        showToast('Download started');
-    } catch (error) {
-        console.error('Error downloading artwork:', error);
-        showToast('Failed to download artwork');
-    }
-}
+        if (savedLatitude && savedLongitude) {
+            DOM.latitudeInput.value = savedLatitude;
+            DOM.longitudeInput.value = savedLongitude;
+        }
 
-function showToast(message) {
-    const existingToast = document.querySelector('.toast');
-    if (existingToast) {
-        existingToast.remove();
+        // Setup event listeners
+        DOM.themeToggle.addEventListener('click', toggleTheme);
+        DOM.locationToggle.addEventListener('click', () => togglePanel(DOM.locationPanel, DOM.locationToggle));
+        DOM.museumToggle.addEventListener('click', () => togglePanel(DOM.museumPanel, DOM.museumToggle));
+        DOM.downloadBtn.addEventListener('click', downloadArtwork);
+        DOM.saveLocationBtn.addEventListener('click', saveLocation);
+
+        // Initialize theme
+        updateThemeIcon();
+        if (currentThemeState === 'auto') {
+            checkLocationBasedTheme();
+        } else {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+        }
+
+        // Fetch initial artwork
+        fetchArtwork();
     }
-    
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.textContent = message;
-    document.body.appendChild(toast);
-    
-    setTimeout(() => toast.remove(), 3000);
-}
+
+    // Start the application
+    initialize();
+});
