@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Art gallery new tab featuring works from Art Institute Chicago">
+    <meta name="theme-color" content="#006495">
     <title>artelier:tab</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="preload" href="../lib/color-thief.min.js" as="script">
+    <link rel="preload" href="../lib/suncalc.min.js" as="script">
+    
+    <!-- Material Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0">
-    <script src="../lib/color-thief.min.js"></script>
-    <script src="../lib/suncalc.min.js"></script>
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="info-panel">
+    <main class="container">
+        <!-- Info Panel -->
+        <section class="info-panel">
             <div class="artwork-info">
                 <div class="artwork-title">
                     <h1 id="artworkTitle"></h1>
@@ -21,42 +33,59 @@
                     <p id="date"></p>
                 </div>
             </div>
+            
+            <!-- Color Palette & Controls -->
             <div class="color-palette-container">
                 <div class="color-palette" id="colorPalette"></div>
-                <div class="nav-pill">
+                <nav class="nav-pill">
                     <div class="pill-content">
-                        <div class="tags" id="tags"></div>
+                        <div class="tags" id="tags" role="list"></div>
                         <div class="main-controls">
-                            <button id="themeToggle" class="pill-button" data-label="Theme">
-                                <span class="material-symbols-rounded theme-icon">light_mode</span>
+                            <button id="themeToggle" class="pill-button" data-label="Theme" aria-label="Toggle theme">
+                                <span class="material-symbols-rounded theme-icon" aria-hidden="true">light_mode</span>
                             </button>
-                            <button id="locationToggle" class="pill-button" data-label="Location">
-                                <span class="material-symbols-rounded">location_on</span>
+                            <button id="locationToggle" class="pill-button" data-label="Location" aria-label="Set location">
+                                <span class="material-symbols-rounded" aria-hidden="true">location_on</span>
                             </button>
-                            <button id="museumToggle" class="pill-button" data-label="Museum Info">
-                                <span class="material-symbols-rounded">museum</span>
+                            <button id="museumToggle" class="pill-button" data-label="Museum Info" aria-label="Show museum information">
+                                <span class="material-symbols-rounded" aria-hidden="true">museum</span>
                             </button>
-                            <button id="downloadBtn" class="pill-button" data-label="Download">
-                                <span class="material-symbols-rounded">download</span>
+                            <button id="downloadBtn" class="pill-button" data-label="Download" aria-label="Download artwork">
+                                <span class="material-symbols-rounded" aria-hidden="true">download</span>
                             </button>
                         </div>
                     </div>
-                    <!-- Panels -->
-                    <div class="location-panel">
+                    
+                    <!-- Location Panel -->
+                    <div class="location-panel" role="dialog" aria-labelledby="locationTitle">
+                        <h2 id="locationTitle" class="visually-hidden">Location Settings</h2>
                         <p class="location-info">Optional: Enter your coordinates for automatic day/night theme switching based on your local sunrise and sunset times.</p>
                         <div class="input-group">
                             <div class="input-field">
                                 <label for="latitude">Latitude</label>
-                                <input type="number" id="latitude" step="0.000001" placeholder="e.g., 41.8781">
+                                <input type="number" 
+                                       id="latitude" 
+                                       step="0.000001" 
+                                       placeholder="e.g., 41.8781"
+                                       aria-describedby="latitudeHint">
+                                <span id="latitudeHint" class="input-hint">Enter a value between -90 and 90</span>
                             </div>
                             <div class="input-field">
                                 <label for="longitude">Longitude</label>
-                                <input type="number" id="longitude" step="0.000001" placeholder="e.g., -87.6298">
+                                <input type="number" 
+                                       id="longitude" 
+                                       step="0.000001" 
+                                       placeholder="e.g., -87.6298"
+                                       aria-describedby="longitudeHint">
+                                <span id="longitudeHint" class="input-hint">Enter a value between -180 and 180</span>
                             </div>
                         </div>
                         <button id="saveLocation" class="pill-action-button">Save</button>
                     </div>
-                    <div class="museum-panel">
+                    
+                    <!-- Museum Panel -->
+                    <div class="museum-panel" role="dialog" aria-labelledby="museumTitle">
+                        <h2 id="museumTitle" class="visually-hidden">Museum Information</h2>
                         <div class="museum-info-card">
                             <div class="museum-header">
                                 <h3>Art Institute Chicago</h3>
@@ -71,19 +100,32 @@
                                     <span class="stat-value">1879</span>
                                 </div>
                             </div>
-                            <a href="https://www.artic.edu" target="_blank" class="museum-link">
+                            <a href="https://www.artic.edu" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="museum-link">
                                 Visit Website
-                                <span class="material-symbols-rounded">arrow_forward</span>
+                                <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
                             </a>
                         </div>
                     </div>
-                </div>
+                </nav>
             </div>
-        </div>
-        <div class="image-panel">
-            <img id="artworkImage" crossorigin="anonymous" src="" alt="Artwork">
-        </div>
-    </div>
+        </section>
+
+        <!-- Image Panel -->
+        <section class="image-panel">
+            <img id="artworkImage" 
+                 crossorigin="anonymous" 
+                 src="" 
+                 alt="Artwork"
+                 loading="eager">
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../lib/color-thief.min.js"></script>
+    <script src="../lib/suncalc.min.js"></script>
     <script src="../js/app.js"></script>
 </body>
 </html>
