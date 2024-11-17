@@ -1,5 +1,14 @@
-node_modules/
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Build files
+web-ext-artifacts/
+node_modules/
 *.zip
 *.xpi
-web-ext-artifacts/
