@@ -1,20 +1,37 @@
 {
   "manifest_version": 2,
   "name": "artelier:tab",
-  "version": "1.0.4",
-  "description": "Experience masterpieces from world-renowned museums in every new tab",
+  "version": "1.0.0",
+  "description": "Transform your new tab into an art gallery featuring works from the Art Institute of Chicago",
+  
   "permissions": [
-    "https://api.artic.edu/*",
-    "https://www.artic.edu/*"
+    "storage",
+    "clipboardWrite",
+    "https://api.artic.edu/*"
   ],
+
   "chrome_url_overrides": {
     "newtab": "src/html/newtab.html"
   },
-  "content_security_policy": "default-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' https://www.artic.edu https://api.artic.edu data: blob:; connect-src 'self' https://api.artic.edu https://www.artic.edu; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'",
+
+  "icons": {
+    "16": "src/assets/icons/icon-16.png",
+    "48": "src/assets/icons/icon-48.png",
+    "128": "src/assets/icons/icon-128.png"
+  },
+
   "browser_specific_settings": {
     "gecko": {
-      "id": "artelier-tab@arteliertab.com",
-      "strict_min_version": "58.0"
+      "id": "artelier-tab@example.com",
+      "strict_min_version": "57.0"
     }
-  }
+  },
+
+  "background_color": "#FAFCFF",
+  "theme_color": "#006495",
+  
+  "author": "Your Name",
+  "homepage_url": "https://github.com/c3t1nn/artelier_tab",
+
+  "content_security_policy": "script-src 'self'; object-src 'none'"
 }
