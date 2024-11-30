@@ -17,7 +17,7 @@ Transform your new tab into an art gallery, featuring masterpieces from the Art 
 ## Installation
 **Firefox Add-ons**
 - Visit Firefox Add-ons
-- Search "artelier:tab"
+- Search "artelier_tab"
 - Add to Firefox
 
 **Manual Install**
